@@ -1,0 +1,54 @@
+{{define "login"}}
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./static/img/botlogo.svg" type="image/x-icon" />
+    <title>EasyCodeTechBot login</title>
+
+	  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+		<script src="/static/js/menu.js"></script>
+    <link rel="stylesheet" href="./static/css/menu.css" />
+  </head>
+  <body>
+    <section class="menu">
+      <div class="container">
+        <div class="header-container">
+          <img src="./static/img/botlogo.png" alt="" class="logo" />
+          <h1>EasyCodeTechBot</h1>
+        </div>
+
+        <a href="/replace">
+            <div class="card replace">
+                <div class="title">
+                  <h2>Взять замену или перенос</h2>
+                </div>
+      
+                <div class="arrow-button arrow-replace">
+                  <p>Перейти</p>
+                  <img class="arrow" src="./static/img/whitearrow.svg" alt="" />
+                </div>
+              </div>
+        </a>
+        
+
+        <a href="/login">
+        <div class="card notification">
+          <div class="title">
+            <h2>Подключить уведомления</h2>
+          </div>
+
+          <div class="arrow-button arrow-notification">
+            <p>Перейти</p>
+            <img class="arrow" src="./static/img/whitearrow.svg" alt="" />
+          </div>
+        </div>
+        </a>
+
+      </div>
+    </section>
+  </body>
+</html>
+{{end}}
+{{template "login" .}}

@@ -1,0 +1,53 @@
+{{define "login"}}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyCodeTechBot login</title>
+    <link rel="stylesheet" href="./static/css/login.css">
+    <link rel="icon" href="/static/img/botlogo.svg" type="image/x-icon">
+
+    <script src="/static/js/login.js"></script>
+    <script src="/static/js/meme.js"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+
+    <section id="login-section" class="login">
+        <div class="container">
+            <img src="/static/img/botlogo.svg" alt="" class="logo">
+            <h1>Авторизуйтесь</h1>
+            <div class="about">
+                <h2>Для получения телеграмм уведомлений, необходимо авторизироваться через личный кабинет CRM</h2>
+            </div>
+            <form id="login-form" action="#">
+                <p class="email">Email</p>
+                <input id="email" type="email" required>
+                <div class="password-container">
+                    <p class="password">Пароль</p>
+                </div>
+                
+                <input id="password" type="password" required>
+                <button type="submit">Войти</button>
+            </form>
+            
+        </div>
+    </section>
+
+    <section id="loged-section" class="loged">
+        <div class="container">
+            <h1>Добро пожаловать</h1>
+            <p>В этот чат будут поступать уведомления об уроках.</p>
+            <p id="valid-name"></p>
+            <p id="work-quotes"></p>
+            <img src="" alt="" class="cat">
+            <button id="logout">Выйти</button>
+        </div>
+    </section>
+</body>
+</html>
+
+
+{{end}}
+{{template "login" .}}

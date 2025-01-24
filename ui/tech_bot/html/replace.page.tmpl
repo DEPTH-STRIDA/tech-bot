@@ -1,0 +1,409 @@
+{{define "replace"}}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Заявка/Перенос</title>
+
+    <!-- tg -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <!-- js -->
+    <script src="/static/js/replace.js?v={{.Version}}"></script>
+    <script src="/static/js/replace-unitar.js?v={{.Version}}"></script>
+    <script src="/static/js/svipe.js?v={{.Version}}"></script>
+    <!-- css -->
+    <link rel="stylesheet" href="/static/css/replace.css?v={{.Version}}" />
+  </head>
+  <body>
+    <section class="header">
+      <!--  -->
+      <div class="containter">
+        <!--  -->
+        <div class="main-title">
+          <h1 id="h1-main-title">НОВАЯ ЗАЯВКА</h1>
+        </div>
+        <!--  -->
+        <div class="horizontal">
+          <h2 class="new-form-button white-line" id="new-form-button">
+            ЗАЯВКА
+          </h2>
+          <h2 class="history-button" id="history-button">ИСТОРИЯ</h2>
+        </div>
+        <!--  -->
+      </div>
+      <!--  -->
+    </section>
+
+    <!-- alert -->
+    <section class="alert">
+      <div class="container off-screen" id="alert-container">
+        <button id="alert-close-button" class="button-close-alert">
+          ЗАКРЫТЬ
+        </button>
+        <div class="divider"></div>
+        <p class="title" id="title">ОШИБКА</p>
+        <p class="error-description" id="error-description">
+          Базовое описание ошибки
+        </p>
+        <div class="loading" id="loading"></div>
+      </div>
+    </section>
+
+    <div class="form" id="form-container">
+      <section class="switcher">
+        <div class="container">
+          <!--  -->
+          <div class="button" id="switcher">
+            <p class="replace-button" id="replace-button-style">ЗАМЕНА</p>
+            <p class="transfer-button" id="transfer-button-style">ПЕРЕНОС</p>
+            <!--  -->
+          </div>
+        </div>
+      </section>
+
+      <form action="#">
+        <section id="handle-copy">
+          <!-- Дата и время изначального урока -->
+          <section class="time-container">
+            <div class="container">
+              <!--  -->
+              <div class="title">
+                <div class="date-title">Дата урока*</div>
+                <div class="time-title">Время урока мск*</div>
+              </div>
+              <!--  -->
+              <div class="input">
+                <div>
+                  <input
+                    type="date"
+                    class="date-input"
+                    name=""
+                    id="lesson-date"
+                  />
+                </div>
+
+                <div>
+                  <input
+                    type="time"
+                    class="time-input"
+                    name=""
+                    id="lesson-time"
+                  />
+                  <!-- <div class="mini-title">МСК</div> -->
+                </div>
+              </div>
+              <!--  -->
+            </div>
+          </section>
+
+          <!-- Время переноса -->
+          <section class="reason" id="transfer-time-container">
+            <div class="container">
+              <div class="title">Время переноса*</div>
+
+              <textarea
+                name=""
+                id="transfer-time"
+                placeholder="..."
+                class="autoResizeTextarea"
+                maxlength="600"
+              >
+              </textarea>
+            </div>
+          </section>
+
+          <!-- Комментарий -->
+          <section class="reason" id="comment-container">
+            <div class="container">
+              <div class="title" id="title">Комментарий*</div>
+
+              <textarea
+                name=""
+                id="comment"
+                placeholder="..."
+                class="autoResizeTextarea "
+                maxlength="1200"
+              >
+              </textarea>
+            </div>
+          </section>
+
+          <!-- формат замены -->
+          <section class="replace-format">
+            <div class="container">
+              <div class="custom-select">
+                <div class="select-selected" id="replace-format">Формат</div>
+                <input
+                  type="text"
+                  class="select-search"
+                  placeholder="Поиск предмета..."
+                  style="display: none"
+                />
+                <ul
+                  class="select-items"
+                  style="display: none"
+                  id="drop-list-format"
+                >
+                  <li>Формат 1</li>
+                  <li>Формат 2</li>
+                  <li>Формат 3</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Преподаватель -->
+          <section class="replace-format">
+            <div class="container">
+              <div class="custom-select">
+                <div class="select-selected" id="teacher">Преподаватель</div>
+                <input
+                  type="text"
+                  class="select-search"
+                  placeholder="Поиск преподавателя..."
+                  style="display: none"
+                />
+                <ul
+                  class="select-items"
+                  style="display: none"
+                  id="drop-list-teacher"
+                >
+                  <li>Преподаватель 1</li>
+                  <li>Преподаватель 2</li>
+                  <li>Преподаватель 3</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Тимлидер -->
+          <section class="replace-format">
+            <div class="container">
+              <div class="custom-select">
+                <div class="select-selected" id="teamleader">Тимлидер</div>
+                <input
+                  type="text"
+                  class="select-search"
+                  placeholder="Поиск Тимлидера..."
+                  style="display: none"
+                />
+                <ul
+                  class="select-items"
+                  style="display: none"
+                  id="drop-list-teamleader"
+                >
+                  <li>Тимлидер 1</li>
+                  <li>Тимлидер 2</li>
+                  <li>Тимлидер 3</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Предмет -->
+          <section class="replace-format">
+            <div class="container">
+              <div class="custom-select">
+                <div class="select-selected" id="subject">Предмет</div>
+                <input
+                  type="text"
+                  class="select-search"
+                  placeholder="Поиск предмета..."
+                  style="display: none"
+                />
+                <ul
+                  class="select-items"
+                  style="display: none"
+                  id="drop-list-subject"
+                >
+                  <li>Предмет 1</li>
+                  <li>Предмет 2</li>
+                  <li>Предмет 3</li>
+                  <li>НАСТАВНИЧЕСТВО</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Номера групп урока -->
+          <section class="numbers">
+            <!-- Вертикально -->
+            <div class="container">
+              <!-- Номер урока -->
+              <div id="lesson-number" class="line">
+                <div class="half"></div>
+                <div class="half lesson-number">Номер урока</div>
+              </div>
+
+              <!-- Модуль урок -->
+              <div class="line">
+                <div class="half">Номер<br />группы*</div>
+                <div class="half">
+                  <div class="half lesson-number" id="module-title">
+                    Модуль*
+                  </div>
+                  <div class="half lesson-number" id="lesson-title">Урок*</div>
+                </div>
+              </div>
+              <!-- Поля ввода -->
+              <div class="line">
+                <div class="half">
+                  <input
+                    type="text"
+                    placeholder="..."
+                    class="group-number"
+                    maxlength="10"
+                    id="group-number"
+                  />
+                </div>
+                <div class="half">
+                  <div class="half">
+                    <input
+                      type="text"
+                      placeholder="..."
+                      class="module"
+                      id="module"
+                      maxlength="2"
+                    />
+                  </div>
+                  <div class="half">
+                    <input
+                      type="text"
+                      placeholder="..."
+                      class="lesson"
+                      id="lesson"
+                      maxlength="2"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Ссылка -->
+          <section class="link" id="link-container">
+            <div class="container">
+              <div class="title" id="lint-title">
+                Ссылка на методический материал по уроку*
+              </div>
+              <input
+                type="text"
+                name=""
+                id="link"
+                placeholder="https://example.com"
+                maxlength="1200"
+              />
+            </div>
+          </section>
+
+          <!-- Важная информация -->
+          <section class="imp-info" id="imp-info-container">
+            <div class="container">
+              <div class="title">
+                Важная информация по материалу, ученикам и т.д.*
+              </div>
+              <textarea
+                name=""
+                id="imp-info"
+                placeholder="..."
+                class="autoResizeTextarea"
+                maxlength="1200"
+              >
+              </textarea>
+              <div class="title">
+                Что делали с учениками на прошлых занятиях? Распишите подробно*
+              </div>
+              <textarea
+                name=""
+                id="imp-info-2"
+                placeholder="..."
+                class="autoResizeTextarea"
+                maxlength="1200"
+              >
+              </textarea>
+            </div>
+          </section>
+
+          <!-- Важная информация - наставничество -->
+          <section class="imp-info" id="imp-info-mentor-container">
+            <div class="container">
+              <div class="title">
+                Расскажите чем занимались с учеником на последних занятиях и в
+                целом на курсе*
+              </div>
+              <textarea
+                name=""
+                id="mentoring-inf-1"
+                placeholder="..."
+                class="autoResizeTextarea"
+                maxlength="1200"
+              >
+              </textarea>
+              <div class="title">
+                Какие краткосрочные/среднесрочные/дальносрочные планы на
+                оставшуюся часть <br />курса?*
+              </div>
+              <textarea
+                name=""
+                id="mentoring-inf-2"
+                placeholder="..."
+                class="autoResizeTextarea"
+                maxlength="1200"
+              >
+              </textarea>
+              <div class="title">
+                Расскажите про ученика? Какие у него интересы? Какие
+                сложности/особенности возникали с учеником?*
+              </div>
+              <textarea
+                name=""
+                id="mentoring-inf-3"
+                placeholder="..."
+                class="autoResizeTextarea"
+                maxlength="1200"
+              >
+              </textarea>
+            </div>
+          </section>
+
+          <!-- Причина -->
+          <section class="reason">
+            <div class="container">
+              <div class="title" id="reason-title">Причина замены*</div>
+
+              <textarea
+                name=""
+                id="reason"
+                placeholder="..."
+                class="autoResizeTextarea"
+                maxlength="1200"
+              >
+              </textarea>
+            </div>
+          </section>
+        </section>
+
+        <!-- Кнопка отправить -->
+        <section class="button" id="button-section">
+          <div class="container">
+            <button id="send-button">ОТПРАВИТЬ</button>
+          </div>
+          <div class="container-delete" id="delete-container">
+            <div class="delete-button" id="delete-button">УДАЛИТЬ</div>
+          </div>
+        </section>
+      </form>
+    </div>
+
+    <div class="history" id="history-container">
+      <div class="get-history-button" id="get-history-button">
+        <div class="inner" id="inner-button">Получить/обновить историю</div>
+      </div>
+    </div>
+  </body>
+</html>
+
+{{end}}
+{{template "replace" .}}

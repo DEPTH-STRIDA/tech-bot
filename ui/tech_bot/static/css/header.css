@@ -1,0 +1,112 @@
+.header_container {
+  width: 100%;
+  height: auto;
+  background-color: #2d2936;
+}
+
+.header {
+  letter-spacing: 2px;
+  font-weight: 800;
+  font-family: "RG-StandardMedium";
+  font-size: 2.7vw;
+  top: 0;
+  left: 0;
+  right: 0;
+  letter-spacing: 1px;
+  color: #d8d8d8;
+  background-color: #2d2936;
+  padding: 0 2rem;
+  height: 8vw;
+  display: flex;
+  align-items: center;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.navbar__menu {
+  position: relative;
+  display: flex;
+}
+.navbar__link {
+  margin-top: 2px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  align-items: center;
+  justify-content: center;
+  height: 8.9vw;
+  color: #fff;
+  transition: 250ms ease all;
+  text-decoration: none;
+  width: 8rem;
+  text-transform: uppercase;
+  transition: 500ms ease all;
+}
+.cicrcle::after {
+  content: "";
+  position: absolute;
+  top: 1.2vw; /* Настройте это значение, чтобы переместить кружочек вверх */
+  right: 7.5vw; /* Настройте это значение, чтобы переместить кружочек вправо */
+  width: 0.8vw; /* Диаметр кружочка */
+  height: 0.8vw; /* Диаметр кружочка */
+  background-color: white; /* Цвет кружочка */
+  border-radius: 50%; /* Делает элемент круглым */
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2); /* Добавляет тень для глубины */
+}
+
+.navbar__link svg {
+  transition: 500ms ease all;
+}
+.navbar:not(:hover) .navbar__link:focus span,
+.navbar__link:hover span {
+  opacity: 1;
+  transform: translate(0);
+}
+.navbar__menu {
+  list-style-type: none;
+}
+.navbar__item:last-child:before {
+  content: "";
+  position: absolute;
+  left: -7vw;
+  margin-left: 5.2vw;
+  bottom: -0.1vw;
+  height: 0.5rem;
+  width: 0.2vw;
+  transition: 500ms ease all;
+}
+@media screen and (min-width: 400px) {
+  .cicrcle::after {
+      right: 5vw;
+  }
+}
+@media screen and (min-width: 450px) {
+  .cicrcle::after {
+      right: 2vw;
+  }
+  .navbar__link {
+      width: 10rem;
+  }
+}
+@media screen and (min-width: 640px) {
+  .cicrcle::after {
+      right: 0vw;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .cicrcle::after {
+      right: 0vw;
+  }
+  .navbar__link {
+      width: 12rem;
+  }
+  .header {
+      font-size: 2vw;
+  }
+}

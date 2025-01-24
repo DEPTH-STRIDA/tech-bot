@@ -1,0 +1,6 @@
+<svg class="icon sheets" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24" id="google-sheets">
+  <path fill="#303c42" d="m20.854 5.146-5-5A.504.504 0 0 0 15.5 0H5C3.897 0 3 .897 3 2v20c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5.5a.504.504 0 0 0-.146-.354z"/>
+  <path fill="#a3d6a6" d="M16 1.707 19.293 5H17c-.551 0-1-.449-1-1V1.707z"/>
+  <path fill="#66bb6a" d="M19 23H5c-.551 0-1-.449-1-1V2c0-.551.449-1 1-1h10v3c0 1.103.897 2 2 2h3v16c0 .551-.449 1-1 1z"/>
+  <path fill="#fff" d="M16.5 9h-9a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-.5 3h-4.5v-2H16v2zm-4.5 1H16v2h-4.5v-2zm-1 2H8v-2h2.5v2zm0-5v2H8v-2h2.5zM8 16h2.5v2H8v-2zm3.5 2v-2H16v2h-4.5z"/>
+</svg>

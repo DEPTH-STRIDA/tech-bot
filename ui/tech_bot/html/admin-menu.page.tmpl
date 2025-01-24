@@ -1,0 +1,59 @@
+{{define "admin-menu"}}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/static/img/favicon.ico" type="image/x-icon" />
+
+   <link rel="stylesheet" href="/static/css/admin-menu.css?v={{.Version}}" />
+<script src="/static/js/admin-menu.js?v={{.Version}}"></script>
+
+
+    <title>ADMIN MENU - EasyCodeTech_bot</title>
+  </head>
+  <body>
+    <section class="header">
+      <div class="container">
+        <img src="./static/img/botlogo.png" alt="" />
+        <h1>ADMIN MENU</h1>
+        <h2>EasyCodeTech_bot</h2>
+      </div>
+    </section>
+
+    <section class="token">
+      <div class="container-midle">
+        <div class="horizontal">
+          <h3>Токен</h3>
+          <input type="text" placeholder="..." id="token" />
+        </div>
+        <div class="divider"></div>
+      </div>
+    </section>
+
+    <section class="buttons">
+      <div class="container-midle">
+        <div class="horizontal">
+          <div class="title">Обновить данные выпадающих списков</div>
+          <div class="button" id="updateSelectButton">ОТПРАВИТЬ</div>
+        </div>
+
+        <div class="horizontal">
+          <div class="title">
+            Обновить базу данных преподавателей для рассылки уведомлений.
+          </div>
+          <div class="button" id="updateTeachersButton">ОТПРАВИТЬ</div>
+        </div>
+
+        <section class="console">
+          <div class="container-midle">
+            <div class="title">Консоль</div>
+            <div class="console-area" id="consoleText"></div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </body>
+</html>
+{{end}}
+{{template "admin-menu" .}}

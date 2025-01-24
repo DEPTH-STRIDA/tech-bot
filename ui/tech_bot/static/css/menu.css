@@ -1,0 +1,307 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("../css/Roboto.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../font/Roboto-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+:root {
+  --header-font-size: 2.2vw;
+  /* --container-max-width: 50vw;
+  --container-min-width: 100vw; */
+  --h2-font-size: 2.2vw;
+  --menu-width: 40vw;
+  --card-width: 100%;
+  --card-height: 16vw;
+  --card-margin-top: 3vw;
+  --logo-width: 6vw;
+  --arrow-width: 1.6vw;
+  --arrow-button-margin-tip:1vw;
+
+  --arrow-translate-distance: 2vw;
+  --arrow-button-height: 4vw;
+  --arrow-button-width: 10.6vw;
+  --arrow-button-padding-left: 2vw;
+  --arrow-button-margin-left: 3.5vw;
+  --arrow-button-margin-bottom: 1vw;
+  --arrow-button-font-size: 1.3vw;
+
+  --arrow-button-color: #d7d7d7;
+  --background-color: #d9d9d9;
+  --card-background-color: #a8c0fe;
+  --replace-background-color: #a8c0fe;
+  --notification-background-color: #acacac;
+  --gradient-background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--background-color);
+}
+.menu {
+  width: var(--menu-width);
+}
+.container {
+  color: #333333;
+  margin: 0 auto;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  margin-left: 3vw;
+  font-size: var(--header-font-size);
+}
+
+.logo {
+  width: var(--logo-width);
+}
+
+.card {
+  margin: auto;
+  margin-top: var(--card-margin-top);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* width: 100%; */
+  height: var(--card-height);
+  border-radius: 1.6vw;
+  background-color: var(--card-background-color);
+}
+
+.replace {
+  background-color: var(--replace-background-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.replace::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-background);
+  transition: left 0.5s ease-in-out;
+}
+
+.replace:hover::before {
+  left: 100%;
+}
+
+.notification {
+  background-color: var(--notification-background-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.notification::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-background);
+  transition: left 0.5s ease-in-out;
+}
+
+.notification:hover::before {
+  left: 100%;
+}
+
+.title {
+  text-align: center;
+  max-width: 95%;
+  margin-top: 3vw;
+}
+
+.title h2 {
+  color: #333333;
+  font-weight: 800;
+  font-size: var(--h2-font-size);
+}
+
+.arrow-button {
+  min-height: var(--arrow-button-height);
+  margin-top: var(--arrow-button-margin-tip);
+  font-family: "Poppins", sans-serif;
+  border-radius: 0.6vw;
+  height: var(--arrow-button-height);
+  width: var(--arrow-button-width);
+  padding-left: var(--arrow-button-padding-left);
+  display: flex;
+  flex-direction: row;
+  margin-left: var(--arrow-button-margin-left);
+  margin-bottom: var(--arrow-button-margin-bottom);
+}
+
+.arrow-button p {
+  color: var(--arrow-button-color);
+  align-content: center;
+  font-size: var(--arrow-button-font-size);
+  margin-right: 1.4vw;
+}
+
+.arrow {
+  width: var(--arrow-width);
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover .arrow {
+  transform: translateX(var(--arrow-translate-distance));
+}
+
+.arrow-replace {
+  background-color: #4c4c4c;
+}
+
+.arrow-notification {
+  background-color: #4c4c4c;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Media Queries */
+@media (max-width: 880px) {
+  :root {
+    --header-font-size: 4vw;
+    --card-margin-top: 5vw;
+    --menu-width: 70vw;
+    --card-height: 20vw;
+    --arrow-translate-distance: 2vw;
+
+    --arrow-button-height: 5vw;
+    --arrow-button-width: 16vw;
+    --arrow-button-padding-left: 2.4vw;
+    --arrow-button-margin-left: 3.5vw;
+    --arrow-button-margin-bottom: 1vw;
+    --arrow-button-font-size: 1.9vw;
+    --arrow-width: 2.9vw;
+    --h2-font-size:3vw;
+    --arrow-button-margin-tip:2.2vw;
+  }
+
+  h1 {
+    font-size: var(--header-font-size);
+  }
+
+  .title {
+    margin-top: 5vw;
+  }
+
+  .arrow-button {
+    margin-left: var(--arrow-button-margin-left);
+    margin-bottom: 3vw;
+  }
+
+  .arrow-button p {
+    font-size: var(--arrow-button-font-size);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-font-size: 4vw;
+    --card-margin-top: 5vw;
+    --menu-width: 70vw;
+    --card-height: 20vw;
+    --arrow-translate-distance: 2vw;
+
+    --arrow-button-height: 5vw;
+    --arrow-button-width: 16vw;
+    --arrow-button-padding-left: 2.4vw;
+    --arrow-button-margin-left: 3.5vw;
+    --arrow-button-margin-bottom: 1vw;
+    --arrow-button-font-size: 1.9vw;
+    --arrow-width: 2.9vw;
+    --h2-font-size:3vw;
+    --arrow-button-margin-tip:2.2vw;
+  }
+
+  h1 {
+    font-size: var(--header-font-size);
+  }
+
+  .title {
+    margin-top: 6vw;
+  }
+
+  .arrow-button {
+    margin-left: var(--arrow-button-margin-left);
+    margin-bottom: 4vw;
+  }
+
+  .arrow-button p {
+    font-size: var(--arrow-button-font-size);
+  }
+}
+
+@media (max-width: 450px) {
+  :root {
+    --header-font-size: 6vw;
+    --card-margin-top: 5vw;
+    --menu-width: 90vw;
+    --card-height: 32vw;
+    --arrow-translate-distance: 3vw;
+    --logo-width: 7.6vw;
+
+    --arrow-button-height: 6vw;
+    --arrow-button-width: 22vw;
+    --arrow-button-padding-left: 2.4vw;
+    --arrow-button-margin-left: 3.5vw;
+    --arrow-button-margin-bottom: 1vw;
+    --arrow-button-font-size: 2.5vw;
+    --arrow-width: 2.9vw;
+    --h2-font-size:5vw;
+    --arrow-button-margin-tip:2.2vw;
+  }
+
+  h1 {
+    font-size: var(--header-font-size);
+  }
+
+  .title {
+    margin-top: 7vw;
+  }
+.card{
+  border-radius: 3vw;
+}
+  .arrow-button {
+    margin-left: var(--arrow-button-margin-left);
+    margin-bottom: 5vw;
+    border-radius: 1.5vw;
+  }
+
+  .arrow-button p {
+    font-size: var(--arrow-button-font-size);
+  }
+}
