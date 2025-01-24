@@ -41,7 +41,7 @@ EasyCodeTech Bot - это веб-приложение и телеграм-бот
 
 1. **Клонируйте репозиторий**:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/DEPTH-STRIDA/tech-bot
    ```
 
 2. **Перейдите в директорию проекта**:
